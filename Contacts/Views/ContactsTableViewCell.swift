@@ -12,7 +12,13 @@ class ContactsTableViewCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        
+        label.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium)
+        return label
+    }()
+    
+    private lazy var phoneLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 }

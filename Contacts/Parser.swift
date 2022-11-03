@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol IParser {
     associatedtype Model
     func parse(data: Data) -> Model?
@@ -25,8 +24,7 @@ struct Parser: IParser {
                                                                               phoneNumber: $0.phoneNumber,
                                                                               skills: $0.skills) }
             return contacts
-        }
-        catch {
+        } catch {
             return nil
         }
     }

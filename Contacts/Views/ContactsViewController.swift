@@ -15,6 +15,4 @@ class ContactsViewController: UIViewController {
         view.backgroundColor = .green
     }
 
-
 }
-
