@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContactsTableViewCell: UITableViewCell {
+final class ContactsTableViewCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -51,9 +51,13 @@ class ContactsTableViewCell: UITableViewCell {
     func configure(contact: Contact) {
         nameLabel.text = contact.name
         phoneLabel.text = contact.phoneNumber
-        var skills = contact.skills[0]
-        for i in 1...skills.count - 1 {
-            skills += " * " + contact.skills[i]
+        var skills = ""
+        for skill in contact.skills {
+            if skill == contact.skills.last {
+                skills += skill
+            } else {
+                skills += skill + " * "
+            }
         }
         skillsLabel.text = skills
     }
