@@ -21,9 +21,10 @@ struct Parser: IParser {
         decoder.keyDecodingStrategy = JSONDecoder.KeyDecodingStrategy.convertFromSnakeCase
         do {
             let decodedData = try decoder.decode(ResponseModel.self, from: data)
-            let contacts = decodedData.company.employees.compactMap { Contact(name: $0.name,
+            var contacts = decodedData.company.employees.compactMap { Contact(name: $0.name,
                                                                               phoneNumber: $0.phoneNumber,
                                                                               skills: $0.skills) }
+            contacts = contacts.sorted { $0.name > $1.name }
             return contacts
         } catch {
             return nil

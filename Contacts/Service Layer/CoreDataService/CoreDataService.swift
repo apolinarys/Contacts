@@ -18,6 +18,7 @@ struct CoreDataService: ICoreDataService {
     
     func getContacts() -> [Contact] {
         let fetchRequest = DBContact.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(DBContact.name), ascending: true)]
         let contacts = coreDataStack.fetch(fetchRequest: fetchRequest)
         var output: [Contact] = []
         contacts?.forEach {
