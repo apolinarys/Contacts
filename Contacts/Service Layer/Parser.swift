@@ -18,6 +18,7 @@ struct Parser: IParser {
     
     func parse(data: Data) -> Model? {
         let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = JSONDecoder.KeyDecodingStrategy.convertFromSnakeCase
         do {
             let decodedData = try decoder.decode(ResponseModel.self, from: data)
             let contacts = decodedData.company.employees.compactMap { Contact(name: $0.name,

@@ -7,15 +7,32 @@
 
 import UIKit
 
-final class ContactsViewController: UIViewController {
+protocol IContactsView {
+    func contactsConfig(contacts: [Contact])
+}
+
+final class ContactsViewController: UIViewController, IContactsView {
     
     private lazy var tableView = UITableView(frame: view.frame)
+    private var contacts: [Contact] = []
+    var presenter: IContactsPresenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addSubviews()
         setupTableView()
+        presenter?.onViewDidLoad()
+        setupNavigationBar()
+    }
+    
+    func contactsConfig(contacts: [Contact]) {
+        self.contacts = contacts
+        tableView.reloadData()
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.title = "Contacts"
     }
     
     private func setupTableView() {
@@ -31,12 +48,13 @@ final class ContactsViewController: UIViewController {
 extension ContactsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ContactsTableViewCell.self))
         guard let cell = cell as? ContactsTableViewCell else { return UITableViewCell() }
+        cell.configure(contact: contacts[indexPath.row])
         return cell
     }
 }
