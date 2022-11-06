@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct RequestsFactory {
-    static func contactsConfig() -> RequestConfig<Parser> {
-        RequestConfig(request: Request(), parser: Parser())
+protocol IRequestFactory {
+    func contactsConfig() -> RequestConfig<ContactsParser>
+}
+
+struct RequestsFactory: IRequestFactory {
+    func contactsConfig() -> RequestConfig<ContactsParser> {
+        RequestConfig(request: ContactsRequest(), parser: ContactsParser())
     }
 }

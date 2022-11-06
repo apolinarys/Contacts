@@ -17,12 +17,13 @@ struct ContactsPresenter: IContactsPresenter {
     let requestSender: IRequestSender
     let coreDataService: ICoreDataService
     let alertPresenter: AlertPresenter
+    let requestsFactory: IRequestFactory
     let view: IContactsView
     
     func onViewDidLoad() {
         let savedContacts = coreDataService.getContacts()
         if savedContacts.isEmpty {
-            requestSender.send(requestConfig: RequestsFactory.contactsConfig()) { result in
+            requestSender.send(requestConfig: requestsFactory.contactsConfig()) { result in
                 switch result {
                 case Result.success(let contacts):
                     DispatchQueue.main.async {

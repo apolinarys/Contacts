@@ -17,9 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController()
         let viewControllersFactory = ViewControllersFactory()
-        let router = Router(navigationController: navigationController,
-                            viewControllersFactory: viewControllersFactory)
-        router.initialViewController()
+        let initialVC = viewControllersFactory.createContactsModule()
+        navigationController.viewControllers = [initialVC]
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         

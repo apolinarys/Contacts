@@ -7,12 +7,7 @@
 
 import Foundation
 
-protocol IParser {
-    associatedtype Model
-    func parse(data: Data) -> Model?
-}
-
-struct Parser: IParser {
+struct ContactsParser: IParser {
     
     typealias Model = [Contact]
     

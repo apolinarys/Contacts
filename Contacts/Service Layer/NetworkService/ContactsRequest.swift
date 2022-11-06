@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol IRequest {
-    var urlRequest: URLRequest? {get}
-}
-
-struct Request: IRequest {
+struct ContactsRequest: IRequest {
     
     var urlRequest: URLRequest? {
         guard let components = createURLComponents(), let url = components.url else { return nil }
