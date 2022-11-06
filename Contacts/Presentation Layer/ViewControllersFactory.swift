@@ -17,7 +17,9 @@ struct ViewControllersFactory: IViewControllersFactory {
     func createContactsModule() -> UIViewController {
         let view = ContactsViewController()
         let requestSender = RequestSender()
-        let presenter = ContactsPresenter(requestSender: requestSender, view: view)
+        let coreDataStack = CoreDataStack()
+        let coreDaraService = CoreDataService(coreDataStack: coreDataStack)
+        let presenter = ContactsPresenter(requestSender: requestSender, coreDataService: coreDaraService, view: view)
         view.presenter = presenter
         return view
     }

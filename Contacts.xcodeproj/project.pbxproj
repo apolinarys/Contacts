@@ -26,6 +26,8 @@
 		FAF589A02917E7BB000FA769 /* ContactsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5899F2917E7BB000FA769 /* ContactsPresenter.swift */; };
 		FAF589A32917E949000FA769 /* RequestsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589A22917E949000FA769 /* RequestsFactory.swift */; };
 		FAF589A92917F023000FA769 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589A82917F023000FA769 /* CoreDataStack.swift */; };
+		FAF589AC2917F096000FA769 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAF589AA2917F096000FA769 /* CoreDataModel.xcdatamodeld */; };
+		FAF589AF2917F26F000FA769 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589AE2917F26F000FA769 /* CoreDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		FAF5899F2917E7BB000FA769 /* ContactsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsPresenter.swift; sourceTree = "<group>"; };
 		FAF589A22917E949000FA769 /* RequestsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsFactory.swift; sourceTree = "<group>"; };
 		FAF589A82917F023000FA769 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		FAF589AB2917F096000FA769 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		FAF589AE2917F26F000FA769 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		FE92875124F2A97B2A57FF84 /* Pods-Contacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.release.xcconfig"; path = "Target Support Files/Pods-Contacts/Pods-Contacts.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,10 +141,8 @@
 		FAF589A12917E85C000FA769 /* Service Layer */ = {
 			isa = PBXGroup;
 			children = (
-				FA905EBA2913C87300599ED0 /* RequestSender.swift */,
-				FA905EB02913C50B00599ED0 /* Request.swift */,
-				FA905EB42913C5C500599ED0 /* Parser.swift */,
-				FAF589A22917E949000FA769 /* RequestsFactory.swift */,
+				FAF589AD2917F23B000FA769 /* NetworkService */,
+				FAF589B02917F273000FA769 /* CoreDataService */,
 			);
 			path = "Service Layer";
 			sourceTree = "<group>";
@@ -179,8 +181,28 @@
 			isa = PBXGroup;
 			children = (
 				FAF589A82917F023000FA769 /* CoreDataStack.swift */,
+				FAF589AA2917F096000FA769 /* CoreDataModel.xcdatamodeld */,
 			);
 			path = "Core Layer";
+			sourceTree = "<group>";
+		};
+		FAF589AD2917F23B000FA769 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				FA905EBA2913C87300599ED0 /* RequestSender.swift */,
+				FA905EB02913C50B00599ED0 /* Request.swift */,
+				FA905EB42913C5C500599ED0 /* Parser.swift */,
+				FAF589A22917E949000FA769 /* RequestsFactory.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		FAF589B02917F273000FA769 /* CoreDataService */ = {
+			isa = PBXGroup;
+			children = (
+				FAF589AE2917F26F000FA769 /* CoreDataService.swift */,
+			);
+			path = CoreDataService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +328,7 @@
 				FA905EB12913C50B00599ED0 /* Request.swift in Sources */,
 				FAF5899C2916C73C000FA769 /* Router.swift in Sources */,
 				FAF589A92917F023000FA769 /* CoreDataStack.swift in Sources */,
+				FAF589AC2917F096000FA769 /* CoreDataModel.xcdatamodeld in Sources */,
 				FA905EBD2913C89C00599ED0 /* RequestConfig.swift in Sources */,
 				FA905EB52913C5C500599ED0 /* Parser.swift in Sources */,
 				FA905E9D2913C15300599ED0 /* AppDelegate.swift in Sources */,
@@ -313,6 +336,7 @@
 				FAF589A32917E949000FA769 /* RequestsFactory.swift in Sources */,
 				FA905EB32913C52F00599ED0 /* Logger.swift in Sources */,
 				FA905EB92913C7B300599ED0 /* Contact.swift in Sources */,
+				FAF589AF2917F26F000FA769 /* CoreDataService.swift in Sources */,
 				FA905EBF2913C8BD00599ED0 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,6 +547,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FAF589AA2917F096000FA769 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAF589AB2917F096000FA769 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = FAF589AB2917F096000FA769 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA905E912913C15300599ED0 /* Project object */;
 }
