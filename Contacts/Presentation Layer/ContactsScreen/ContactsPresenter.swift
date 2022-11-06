@@ -21,7 +21,6 @@ struct ContactsPresenter: IContactsPresenter {
     
     func onViewDidLoad() {
         let savedContacts = coreDataService.getContacts()
-        print(savedContacts)
         if savedContacts.isEmpty {
             requestSender.send(requestConfig: RequestsFactory.contactsConfig()) { result in
                 switch result {
@@ -47,7 +46,6 @@ struct ContactsPresenter: IContactsPresenter {
     }
     
     private func saveContacts(contacts: [Contact]) {
-        print(#function)
         coreDataService.saveContacts(contacts: contacts)
     }
 }
