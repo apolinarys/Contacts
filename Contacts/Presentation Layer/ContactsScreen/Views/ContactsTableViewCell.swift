@@ -47,6 +47,11 @@ final class ContactsTableViewCell: UITableViewCell {
         phoneLabel.text = ""
         skillsLabel.text = ""
     }
+}
+
+// MARK: - Data managing
+
+extension ContactsTableViewCell {
     
     func configure(contact: Contact) {
         nameLabel.text = contact.name
@@ -61,6 +66,11 @@ final class ContactsTableViewCell: UITableViewCell {
         }
         skillsLabel.text = skills
     }
+}
+
+// MARK: - UserInterfaceSetup
+
+extension ContactsTableViewCell {
     
     private func addSubviews() {
         contentView.addSubview(nameLabel)

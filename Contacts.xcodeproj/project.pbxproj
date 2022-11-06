@@ -29,7 +29,19 @@
 		FAF589AF2917F26F000FA769 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589AE2917F26F000FA769 /* CoreDataService.swift */; };
 		FAF589B3291808B1000FA769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF589B2291808B1000FA769 /* Assets.xcassets */; };
 		FAF589B5291809E6000FA769 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589B4291809E6000FA769 /* AlertPresenter.swift */; };
+		FAF589BD29181014000FA769 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589BC29181014000FA769 /* CoreDataServiceTests.swift */; };
+		FAF589C4291810BB000FA769 /* CoreDataStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589C3291810BB000FA769 /* CoreDataStackMock.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAF589BE29181014000FA769 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA905E912913C15300599ED0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA905E982913C15300599ED0;
+			remoteInfo = Contacts;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4116E4CF1C1949B382ED3AE3 /* Pods_Contacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +70,9 @@
 		FAF589B129180776000FA769 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FAF589B2291808B1000FA769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAF589B4291809E6000FA769 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		FAF589BA29181014000FA769 /* ContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAF589BC29181014000FA769 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
+		FAF589C3291810BB000FA769 /* CoreDataStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackMock.swift; sourceTree = "<group>"; };
 		FE92875124F2A97B2A57FF84 /* Pods-Contacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.release.xcconfig"; path = "Target Support Files/Pods-Contacts/Pods-Contacts.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +82,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FA739F25A3223E110E47AE2 /* Pods_Contacts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAF589B729181014000FA769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +117,7 @@
 			children = (
 				FAF589B129180776000FA769 /* README.md */,
 				FA905E9B2913C15300599ED0 /* Contacts */,
+				FAF589BB29181014000FA769 /* ContactsTests */,
 				FA905E9A2913C15300599ED0 /* Products */,
 				9F72DCEF0694C97F6338511F /* Pods */,
 				DF8FE201BF6EE9E28FDF20CD /* Frameworks */,
@@ -105,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				FA905E992913C15300599ED0 /* Contacts.app */,
+				FAF589BA29181014000FA769 /* ContactsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,6 +234,15 @@
 			path = CoreDataService;
 			sourceTree = "<group>";
 		};
+		FAF589BB29181014000FA769 /* ContactsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAF589BC29181014000FA769 /* CoreDataServiceTests.swift */,
+				FAF589C3291810BB000FA769 /* CoreDataStackMock.swift */,
+			);
+			path = ContactsTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +265,24 @@
 			productReference = FA905E992913C15300599ED0 /* Contacts.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FAF589B929181014000FA769 /* ContactsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAF589C029181014000FA769 /* Build configuration list for PBXNativeTarget "ContactsTests" */;
+			buildPhases = (
+				FAF589B629181014000FA769 /* Sources */,
+				FAF589B729181014000FA769 /* Frameworks */,
+				FAF589B829181014000FA769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAF589BF29181014000FA769 /* PBXTargetDependency */,
+			);
+			name = ContactsTests;
+			productName = ContactsTests;
+			productReference = FAF589BA29181014000FA769 /* ContactsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -244,6 +295,10 @@
 				TargetAttributes = {
 					FA905E982913C15300599ED0 = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					FAF589B929181014000FA769 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = FA905E982913C15300599ED0;
 					};
 				};
 			};
@@ -261,6 +316,7 @@
 			projectRoot = "";
 			targets = (
 				FA905E982913C15300599ED0 /* Contacts */,
+				FAF589B929181014000FA769 /* ContactsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,6 +328,13 @@
 			files = (
 				FAF589B3291808B1000FA769 /* Assets.xcassets in Resources */,
 				FA905EA92913C15900599ED0 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAF589B829181014000FA769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +410,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FAF589B629181014000FA769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAF589BD29181014000FA769 /* CoreDataServiceTests.swift in Sources */,
+				FAF589C4291810BB000FA769 /* CoreDataStackMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAF589BF29181014000FA769 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA905E982913C15300599ED0 /* Contacts */;
+			targetProxy = FAF589BE29181014000FA769 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FA905EA72913C15900599ED0 /* LaunchScreen.storyboard */ = {
@@ -531,6 +611,42 @@
 			};
 			name = Release;
 		};
+		FAF589C129181014000FA769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.apolinarys.ContactsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Contacts.app/Contacts";
+			};
+			name = Debug;
+		};
+		FAF589C229181014000FA769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.apolinarys.ContactsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Contacts.app/Contacts";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -548,6 +664,15 @@
 			buildConfigurations = (
 				FA905EAE2913C15900599ED0 /* Debug */,
 				FA905EAF2913C15900599ED0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAF589C029181014000FA769 /* Build configuration list for PBXNativeTarget "ContactsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAF589C129181014000FA769 /* Debug */,
+				FAF589C229181014000FA769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

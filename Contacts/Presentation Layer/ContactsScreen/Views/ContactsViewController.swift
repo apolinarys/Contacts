@@ -25,6 +25,11 @@ final class ContactsViewController: UIViewController, IContactsView {
         presenter?.onViewDidLoad()
         setupNavigationBar()
     }
+}
+
+// MARK: - UserInterface setup
+
+extension ContactsViewController {
     
     func contactsConfig(contacts: [Contact]) {
         self.contacts = contacts
@@ -44,6 +49,8 @@ final class ContactsViewController: UIViewController, IContactsView {
         view.addSubview(tableView)
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension ContactsViewController: UITableViewDataSource {
     
