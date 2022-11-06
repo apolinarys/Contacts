@@ -16,6 +16,7 @@ struct ContactsPresenter: IContactsPresenter {
     
     let requestSender: IRequestSender
     let coreDataService: ICoreDataService
+    let alertPresenter: AlertPresenter
     let view: IContactsView
     
     func onViewDidLoad() {
@@ -24,13 +25,20 @@ struct ContactsPresenter: IContactsPresenter {
         if savedContacts.isEmpty {
             requestSender.send(requestConfig: RequestsFactory.contactsConfig()) { result in
                 switch result {
-                case .success(let contacts):
+                case Result.success(let contacts):
                     DispatchQueue.main.async {
                         view.contactsConfig(contacts: contacts)
                     }
                     saveContacts(contacts: contacts)
-                case .failure(let error):
-                    Logger.shared.message(error.localizedDescription)
+                case Result.failure(let error):
+                    DispatchQueue.main.async {
+                        switch error {
+                        case NetworkError.badData, NetworkError.badURL:
+                            Logger.shared.message(error.localizedDescription)
+                        case NetworkError.noConnection:
+                            alertPresenter.showAlert(message: "No Internet Connection")
+                        }
+                    }
                 }
             }
         } else {

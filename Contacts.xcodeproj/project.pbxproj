@@ -10,7 +10,6 @@
 		8FA739F25A3223E110E47AE2 /* Pods_Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4116E4CF1C1949B382ED3AE3 /* Pods_Contacts.framework */; };
 		FA905E9D2913C15300599ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905E9C2913C15300599ED0 /* AppDelegate.swift */; };
 		FA905EA12913C15300599ED0 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EA02913C15300599ED0 /* ContactsViewController.swift */; };
-		FA905EA62913C15900599ED0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA905EA52913C15900599ED0 /* Assets.xcassets */; };
 		FA905EA92913C15900599ED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA905EA72913C15900599ED0 /* LaunchScreen.storyboard */; };
 		FA905EB12913C50B00599ED0 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EB02913C50B00599ED0 /* Request.swift */; };
 		FA905EB32913C52F00599ED0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EB22913C52F00599ED0 /* Logger.swift */; };
@@ -28,6 +27,8 @@
 		FAF589A92917F023000FA769 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589A82917F023000FA769 /* CoreDataStack.swift */; };
 		FAF589AC2917F096000FA769 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAF589AA2917F096000FA769 /* CoreDataModel.xcdatamodeld */; };
 		FAF589AF2917F26F000FA769 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589AE2917F26F000FA769 /* CoreDataService.swift */; };
+		FAF589B3291808B1000FA769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF589B2291808B1000FA769 /* Assets.xcassets */; };
+		FAF589B5291809E6000FA769 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589B4291809E6000FA769 /* AlertPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +37,6 @@
 		FA905E992913C15300599ED0 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA905E9C2913C15300599ED0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA905EA02913C15300599ED0 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
-		FA905EA52913C15900599ED0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA905EA82913C15900599ED0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA905EAA2913C15900599ED0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA905EB02913C50B00599ED0 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -55,6 +55,9 @@
 		FAF589A82917F023000FA769 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FAF589AB2917F096000FA769 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FAF589AE2917F26F000FA769 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		FAF589B129180776000FA769 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FAF589B2291808B1000FA769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAF589B4291809E6000FA769 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		FE92875124F2A97B2A57FF84 /* Pods-Contacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.release.xcconfig"; path = "Target Support Files/Pods-Contacts/Pods-Contacts.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +93,7 @@
 		FA905E902913C15300599ED0 = {
 			isa = PBXGroup;
 			children = (
+				FAF589B129180776000FA769 /* README.md */,
 				FA905E9B2913C15300599ED0 /* Contacts */,
 				FA905E9A2913C15300599ED0 /* Products */,
 				9F72DCEF0694C97F6338511F /* Pods */,
@@ -159,7 +163,7 @@
 		FAF589A52917EA39000FA769 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FA905EA52913C15900599ED0 /* Assets.xcassets */,
+				FAF589B2291808B1000FA769 /* Assets.xcassets */,
 				FA905EA72913C15900599ED0 /* LaunchScreen.storyboard */,
 				FA905EB22913C52F00599ED0 /* Logger.swift */,
 			);
@@ -172,6 +176,7 @@
 				FA905E9C2913C15300599ED0 /* AppDelegate.swift */,
 				FAF5899B2916C73C000FA769 /* Router.swift */,
 				FAF5899D2917E57F000FA769 /* ViewControllersFactory.swift */,
+				FAF589B4291809E6000FA769 /* AlertPresenter.swift */,
 				FA905EC12913C95A00599ED0 /* ContactsScreen */,
 			);
 			path = "Presentation Layer";
@@ -265,8 +270,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF589B3291808B1000FA769 /* Assets.xcassets in Resources */,
 				FA905EA92913C15900599ED0 /* LaunchScreen.storyboard in Resources */,
-				FA905EA62913C15900599ED0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +340,7 @@
 				FA905EB72913C5E000599ED0 /* ResponseModel.swift in Sources */,
 				FAF589A32917E949000FA769 /* RequestsFactory.swift in Sources */,
 				FA905EB32913C52F00599ED0 /* Logger.swift in Sources */,
+				FAF589B5291809E6000FA769 /* AlertPresenter.swift in Sources */,
 				FA905EB92913C7B300599ED0 /* Contact.swift in Sources */,
 				FAF589AF2917F26F000FA769 /* CoreDataService.swift in Sources */,
 				FA905EBF2913C8BD00599ED0 /* NetworkError.swift in Sources */,
