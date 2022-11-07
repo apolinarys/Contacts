@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8FA739F25A3223E110E47AE2 /* Pods_Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4116E4CF1C1949B382ED3AE3 /* Pods_Contacts.framework */; };
+		FA5DEC1F29195727002975B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DEC1E29195727002975B9 /* Constants.swift */; };
 		FA905E9D2913C15300599ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905E9C2913C15300599ED0 /* AppDelegate.swift */; };
 		FA905EA12913C15300599ED0 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EA02913C15300599ED0 /* ContactsViewController.swift */; };
 		FA905EA92913C15900599ED0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA905EA72913C15900599ED0 /* LaunchScreen.storyboard */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		4116E4CF1C1949B382ED3AE3 /* Pods_Contacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE9F7EB588F1787147810DE /* Pods-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.debug.xcconfig"; path = "Target Support Files/Pods-Contacts/Pods-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
+		FA5DEC1E29195727002975B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA905E992913C15300599ED0 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA905E9C2913C15300599ED0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA905EA02913C15300599ED0 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				FAF589B2291808B1000FA769 /* Assets.xcassets */,
 				FA905EA72913C15900599ED0 /* LaunchScreen.storyboard */,
 				FA905EB22913C52F00599ED0 /* Logger.swift */,
+				FA5DEC1E29195727002975B9 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				FA905EB72913C5E000599ED0 /* ResponseModel.swift in Sources */,
 				FAF589A32917E949000FA769 /* RequestsFactory.swift in Sources */,
 				FA905EB32913C52F00599ED0 /* Logger.swift in Sources */,
+				FA5DEC1F29195727002975B9 /* Constants.swift in Sources */,
 				FAF589B5291809E6000FA769 /* AlertPresenter.swift in Sources */,
 				FA905EB92913C7B300599ED0 /* Contact.swift in Sources */,
 				FAF589AF2917F26F000FA769 /* CoreDataService.swift in Sources */,
@@ -579,6 +583,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 695X95JK38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Contacts/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -607,6 +612,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 695X95JK38;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Contacts/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
