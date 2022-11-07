@@ -28,7 +28,7 @@
 		FAF589AC2917F096000FA769 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAF589AA2917F096000FA769 /* CoreDataModel.xcdatamodeld */; };
 		FAF589AF2917F26F000FA769 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589AE2917F26F000FA769 /* CoreDataService.swift */; };
 		FAF589B3291808B1000FA769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF589B2291808B1000FA769 /* Assets.xcassets */; };
-		FAF589B5291809E6000FA769 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589B4291809E6000FA769 /* AlertPresenter.swift */; };
+		FAF589B5291809E6000FA769 /* ErrorAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589B4291809E6000FA769 /* ErrorAlertPresenter.swift */; };
 		FAF589BD29181014000FA769 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589BC29181014000FA769 /* CoreDataServiceTests.swift */; };
 		FAF589C4291810BB000FA769 /* CoreDataStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589C3291810BB000FA769 /* CoreDataStackMock.swift */; };
 		FAF589C629181EB9000FA769 /* NetworkProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589C529181EB9000FA769 /* NetworkProtocols.swift */; };
@@ -70,7 +70,7 @@
 		FAF589AE2917F26F000FA769 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		FAF589B129180776000FA769 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FAF589B2291808B1000FA769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FAF589B4291809E6000FA769 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
+		FAF589B4291809E6000FA769 /* ErrorAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertPresenter.swift; sourceTree = "<group>"; };
 		FAF589BA29181014000FA769 /* ContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF589BC29181014000FA769 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
 		FAF589C3291810BB000FA769 /* CoreDataStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackMock.swift; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 			children = (
 				FA905E9C2913C15300599ED0 /* AppDelegate.swift */,
 				FAF5899D2917E57F000FA769 /* ViewControllersFactory.swift */,
-				FAF589B4291809E6000FA769 /* AlertPresenter.swift */,
+				FAF589B4291809E6000FA769 /* ErrorAlertPresenter.swift */,
 				FA905EC12913C95A00599ED0 /* ContactsScreen */,
 			);
 			path = "Presentation Layer";
@@ -423,7 +423,7 @@
 				FAF589A32917E949000FA769 /* RequestsFactory.swift in Sources */,
 				FA905EB32913C52F00599ED0 /* Logger.swift in Sources */,
 				FA5DEC1F29195727002975B9 /* Constants.swift in Sources */,
-				FAF589B5291809E6000FA769 /* AlertPresenter.swift in Sources */,
+				FAF589B5291809E6000FA769 /* ErrorAlertPresenter.swift in Sources */,
 				FA905EB92913C7B300599ED0 /* Contact.swift in Sources */,
 				FAF589AF2917F26F000FA769 /* CoreDataService.swift in Sources */,
 				FA905EBF2913C8BD00599ED0 /* NetworkError.swift in Sources */,

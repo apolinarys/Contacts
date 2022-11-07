@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct AlertPresenter {
+struct ErrorAlertPresenter {
     
     let viewController: UIViewController
     

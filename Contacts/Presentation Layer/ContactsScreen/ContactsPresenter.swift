@@ -16,13 +16,19 @@ struct ContactsPresenter: IContactsPresenter {
     
     let requestSender: IRequestSender
     let coreDataService: ICoreDataService
-    let alertPresenter: AlertPresenter
+    let alertPresenter: ErrorAlertPresenter
     let requestsFactory: IRequestFactory
     let view: IContactsView
     
     func onViewDidLoad() {
+        setDate()
+        
+    }
+    
+    private func manageContacts() {
         let savedContacts = coreDataService.getContacts()
-        if savedContacts.isEmpty {
+        if doNeedUpdateData() {
+            coreDataService.deleteContacts()
             requestSender.send(requestConfig: requestsFactory.contactsConfig()) { result in
                 switch result {
                 case Result.success(let contacts):
@@ -44,6 +50,18 @@ struct ContactsPresenter: IContactsPresenter {
         } else {
             view.contactsConfig(contacts: savedContacts)
         }
+
+    }
+    
+    private func setDate() {
+        UserDefaults.standard.set(Date().addingTimeInterval(Double(60 * 60)), forKey: UserDefaultsKeys.DateKey)
+    }
+    
+    private func doNeedUpdateData() -> Bool {
+        if let date = UserDefaults.standard.object(forKey: UserDefaultsKeys.DateKey) as? Date, Date() < date {
+            return false
+        }
+        return true
     }
     
     private func saveContacts(contacts: [Contact]) {

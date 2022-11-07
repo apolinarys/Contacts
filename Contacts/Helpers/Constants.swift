@@ -8,7 +8,7 @@
 import Foundation
 
 enum UserDefaultsKeys {
-    static let lastRefreshDateKey = "lastRefreshDateKey"
+    static let DateKey = "DateKey"
 }
 
 enum AppConstants {

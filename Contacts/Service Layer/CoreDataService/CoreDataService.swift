@@ -10,6 +10,7 @@ import Foundation
 protocol ICoreDataService {
     func getContacts() -> [Contact]
     func saveContacts(contacts: [Contact])
+    func deleteContacts()
 }
 
 struct CoreDataService: ICoreDataService {
@@ -40,6 +41,16 @@ struct CoreDataService: ICoreDataService {
                     skill.skill = $0
                     dbContact.addToSkills(skill)
                 }
+            }
+        }
+    }
+    
+    func deleteContacts() {
+        let fetchRequest = DBContact.fetchRequest()
+        guard let contacts = coreDataStack.fetch(fetchRequest: fetchRequest) else { return }
+        coreDataStack.performSave { context in
+            contacts.forEach {
+                context.delete($0)
             }
         }
     }

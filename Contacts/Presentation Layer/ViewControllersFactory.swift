@@ -20,7 +20,7 @@ struct ViewControllersFactory: IViewControllersFactory {
         let coreDataStack = CoreDataStack()
         let requestsFactory = RequestsFactory()
         let coreDaraService = CoreDataService(coreDataStack: coreDataStack)
-        let alertPresenter = AlertPresenter(viewController: view)
+        let alertPresenter = ErrorAlertPresenter(viewController: view)
         let presenter = ContactsPresenter(requestSender: requestSender,
                                           coreDataService: coreDaraService,
                                           alertPresenter: alertPresenter,

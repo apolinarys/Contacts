@@ -10,13 +10,6 @@ import BackgroundTasks
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    static var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .long
-        return formatter
-      }()
 
     var window: UIWindow?
 
@@ -44,23 +37,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func refresh() {
-      let formattedDate = Self.dateFormatter.string(from: Date())
-      UserDefaults.standard.set(
-        formattedDate,
-        forKey: UserDefaultsKeys.lastRefreshDateKey)
-      print("refresh occurred")
+        let coreDataStack = CoreDataStack()
+        let coreDataService = CoreDataService(coreDataStack: coreDataStack)
+        coreDataService.deleteContacts()
+        UserDefaults.standard.set(nil, forKey: UserDefaultsKeys.DateKey)
+        Logger.shared.message("refresh occurred")
     }
     
     func scheduleAppRefresh() {
       let request = BGAppRefreshTaskRequest(
         identifier: AppConstants.backgroundTaskIdentifier)
-      request.earliestBeginDate = Date(timeIntervalSinceNow: 10)
-      do {
-        try BGTaskScheduler.shared.submit(request)
-        print("background refresh scheduled")
-      } catch {
-        print("Couldn't schedule app refresh \(error.localizedDescription)")
-      }
+      request.earliestBeginDate = Date(timeIntervalSinceNow: 60 * 60)
+        if UserDefaults.standard.object(forKey: UserDefaultsKeys.DateKey) == nil {
+          do {
+            try BGTaskScheduler.shared.submit(request)
+              Logger.shared.message("background refresh scheduled")
+          } catch {
+              Logger.shared.message("Couldn't schedule app refresh \(error.localizedDescription)")
+          }
+        }
     }
 
 }
