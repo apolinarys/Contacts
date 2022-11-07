@@ -22,7 +22,7 @@ struct ContactsPresenter: IContactsPresenter {
     
     func onViewDidLoad() {
         setDate()
-        
+        manageContacts()
     }
     
     private func manageContacts() {
@@ -50,11 +50,10 @@ struct ContactsPresenter: IContactsPresenter {
         } else {
             view.contactsConfig(contacts: savedContacts)
         }
-
     }
     
     private func setDate() {
-        UserDefaults.standard.set(Date().addingTimeInterval(Double(60 * 60)), forKey: UserDefaultsKeys.DateKey)
+        UserDefaults.standard.set(Date(timeIntervalSinceNow: 60 * 60), forKey: UserDefaultsKeys.DateKey)
     }
     
     private func doNeedUpdateData() -> Bool {

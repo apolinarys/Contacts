@@ -37,9 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func refresh() {
-        let coreDataStack = CoreDataStack()
-        let coreDataService = CoreDataService(coreDataStack: coreDataStack)
-        coreDataService.deleteContacts()
+        let refreshManager = RefreshManager()
+        refreshManager.deleteContacts()
         UserDefaults.standard.set(nil, forKey: UserDefaultsKeys.DateKey)
         Logger.shared.message("refresh occurred")
     }
