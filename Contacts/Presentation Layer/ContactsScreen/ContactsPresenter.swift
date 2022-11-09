@@ -31,7 +31,6 @@ struct ContactsPresenter: IContactsPresenter {
     // MARK: - IContactsPresenter
     
     func onViewDidLoad() {
-        setDate()
         manageContacts()
     }
     
@@ -55,6 +54,8 @@ struct ContactsPresenter: IContactsPresenter {
             switch result {
             case Result.success(let contacts):
                 saveContacts(contacts: contacts)
+                
+                setDate()
                 
                 DispatchQueue.main.async {
                     view.contactsConfig(contacts: contacts)
