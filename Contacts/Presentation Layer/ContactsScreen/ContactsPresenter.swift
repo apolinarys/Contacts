@@ -38,36 +38,36 @@ struct ContactsPresenter: IContactsPresenter {
     // MARK: - Private Methods
     
     private func manageContacts() {
-        if doNeedUpdateData() {
-            coreDataService.deleteContacts()
-            
-            loadContacts()
+        if !doNeedUpdateData(),
+           let savedContacts = coreDataService.getContacts() {
+            view.contactsConfig(contacts: savedContacts)
             
             return
         }
         
-        let savedContacts = coreDataService.getContacts()
+        coreDataService.deleteContacts()
         
-        view.contactsConfig(contacts: savedContacts)
+        loadContacts()
     }
     
     private func loadContacts() {
         requestSender.send(requestConfig: requestsFactory.contactsConfig()) { result in
             switch result {
             case Result.success(let contacts):
+                saveContacts(contacts: contacts)
+                
                 DispatchQueue.main.async {
                     view.contactsConfig(contacts: contacts)
                 }
-                saveContacts(contacts: contacts)
             case Result.failure(let error):
-                    switch error {
-                    case NetworkError.badData, NetworkError.badURL:
-                        Logger.shared.message(error.localizedDescription)
-                    case NetworkError.noConnection:
-                        router.presentErrorAlert(message: "No Internet Connection", actions: nil)
-                    case .timeOut:
-                        presentReloadAlert()
-                    }
+                switch error {
+                case NetworkError.badData, NetworkError.badURL:
+                    Logger.shared.message(error.localizedDescription)
+                case NetworkError.noConnection:
+                    router.presentErrorAlert(message: "No Internet Connection", actions: nil)
+                case NetworkError.unknownError:
+                    presentReloadAlert()
+                }
             }
         }
     }

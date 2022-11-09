@@ -13,7 +13,7 @@ protocol ICoreDataService {
     // MARK: - Methods
     
     /// Возвращает контакты.
-    func getContacts() -> [Contact]
+    func getContacts() -> [Contact]?
     
     /// Сохраняет контакты.
     func saveContacts(contacts: [Contact])
@@ -30,16 +30,29 @@ struct CoreDataService: ICoreDataService {
     
     // MARK: - ICoreDataService
     
-    func getContacts() -> [Contact] {
+    func getContacts() -> [Contact]? {
         let fetchRequest = DBContact.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: #keyPath(DBContact.name), ascending: true)]
+        
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: #keyPath(DBContact.name), ascending: true)
+        ]
+        
         let contacts = coreDataStack.fetch(fetchRequest: fetchRequest)
+        
         var output: [Contact] = []
+        
         contacts?.forEach {
             if let name = $0.name, let phoneNumber = $0.phoneNumber {
-                output.append(Contact(name: name, phoneNumber: phoneNumber, skills: getSkills(contact: $0)))
+                output.append(
+                    Contact(name: name, phoneNumber: phoneNumber, skills: getSkills(contact: $0))
+                )
             }
         }
+        
+        if output.isEmpty {
+            return nil
+        }
+        
         return output
     }
     

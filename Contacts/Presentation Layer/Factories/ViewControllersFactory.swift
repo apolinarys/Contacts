@@ -20,7 +20,8 @@ struct ViewControllersFactory: IViewControllersFactory {
     
     // MARK: - Dependencies
     
-    let requestSender = RequestSender()
+    let networkCheckService = NetworkCheckService()
+    
     let requestsFactory = RequestsFactory()
     
     let alertPresenter = AlertPresenter()
@@ -30,6 +31,8 @@ struct ViewControllersFactory: IViewControllersFactory {
     // MARK: - IViewControllersFactory
     
     func createContactsModule() -> UIViewController {
+        let requestSender = RequestSender(networkCheckService: networkCheckService)
+        
         let coreDataService = CoreDataService(coreDataStack: coreDataStack)
         
         let view = ContactsViewController()

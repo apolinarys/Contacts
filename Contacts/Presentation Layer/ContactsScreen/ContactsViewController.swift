@@ -35,13 +35,29 @@ final class ContactsViewController: UIViewController, UITableViewDelegate, UITab
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.isHidden = true
+        
         return tableView
+    }()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(
+            style: UIActivityIndicatorView.Style.large
+        )
+        
+        activityIndicator.center = view.center
+        
+        activityIndicator.startAnimating()
+        
+        return activityIndicator
     }()
     
     // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.systemBackground
         
         addSubviews()
         setupNavigationBar()
@@ -76,11 +92,15 @@ final class ContactsViewController: UIViewController, UITableViewDelegate, UITab
         self.contacts = contacts
         
         tableView.reloadData()
+        
+        activityIndicator.isHidden = true
+        tableView.isHidden = false
     }
     
     // MARK: - Private Methods
     
     private func addSubviews() {
+        view.addSubview(activityIndicator)
         view.addSubview(tableView)
     }
     

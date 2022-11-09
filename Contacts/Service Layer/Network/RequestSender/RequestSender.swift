@@ -18,6 +18,10 @@ protocol IRequestSender {
 
 struct RequestSender: IRequestSender {
     
+    // MARK: - Dependencies
+    
+    let networkCheckService: INetworkCheckService
+    
     // MARK: - Private Properties
     
     private let session = URLSession.shared
@@ -32,21 +36,13 @@ struct RequestSender: IRequestSender {
             return
         }
         
-        let task = session.dataTask(with: urlRequest) { data, response, error in
-            if error != nil {
+        let task = session.dataTask(with: urlRequest) { data, _, error in
+            guard error == nil else {
+                if networkCheckService.isConnectedToNetwork() {
+                    return completionHandler(Result.failure(NetworkError.unknownError))
+                }
+                
                 return completionHandler(Result.failure(NetworkError.noConnection))
-            }
-            
-            guard let response = response as? HTTPURLResponse else {
-                return completionHandler(Result.failure(NetworkError.badData))
-            }
-            
-            if response.statusCode == -1009 {
-                return completionHandler(Result.failure(NetworkError.noConnection))
-            }
-            
-            if response.statusCode == -1001 {
-                return completionHandler(Result.failure(NetworkError.timeOut))
             }
             
             guard let data = data, let parsedModel: Parser.Model = config.parser.parse(data: data) else {

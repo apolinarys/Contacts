@@ -15,7 +15,11 @@ struct ContactsRequest: IRequest {
         guard let components = createURLComponents(),
               let url = components.url else { return nil }
         
-        return URLRequest(url: url)
+        var request = URLRequest(url: url)
+        
+        request.timeoutInterval = 30
+        
+        return request
     }
     
     // MARK: - Private Methods

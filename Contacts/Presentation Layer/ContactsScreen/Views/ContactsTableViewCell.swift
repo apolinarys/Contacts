@@ -80,9 +80,11 @@ final class ContactsTableViewCell: UITableViewCell {
             
             phoneLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
             phoneLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            phoneLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             
             skillsLabel.topAnchor.constraint(equalTo: phoneLabel.bottomAnchor, constant: 8),
             skillsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            skillsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             skillsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
