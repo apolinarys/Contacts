@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8FA739F25A3223E110E47AE2 /* Pods_Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4116E4CF1C1949B382ED3AE3 /* Pods_Contacts.framework */; };
 		FA507D7B291BD97000194018 /* ContactsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA507D7A291BD97000194018 /* ContactsRouter.swift */; };
+		FA507D82291BE7BF00194018 /* BackgroundTasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA507D81291BE7BF00194018 /* BackgroundTasksManager.swift */; };
 		FA5DEC1F29195727002975B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DEC1E29195727002975B9 /* Constants.swift */; };
 		FA5DEC21291984E3002975B9 /* RefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DEC20291984E3002975B9 /* RefreshManager.swift */; };
 		FA905E9D2913C15300599ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905E9C2913C15300599ED0 /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		4116E4CF1C1949B382ED3AE3 /* Pods_Contacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE9F7EB588F1787147810DE /* Pods-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.debug.xcconfig"; path = "Target Support Files/Pods-Contacts/Pods-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
 		FA507D7A291BD97000194018 /* ContactsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRouter.swift; sourceTree = "<group>"; };
+		FA507D81291BE7BF00194018 /* BackgroundTasksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTasksManager.swift; sourceTree = "<group>"; };
 		FA5DEC1E29195727002975B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA5DEC20291984E3002975B9 /* RefreshManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshManager.swift; sourceTree = "<group>"; };
 		FA905E992913C15300599ED0 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +236,7 @@
 		FAF589A12917E85C000FA769 /* Service Layer */ = {
 			isa = PBXGroup;
 			children = (
+				FA507D81291BE7BF00194018 /* BackgroundTasksManager.swift */,
 				FAF589AD2917F23B000FA769 /* Network */,
 				FAF589B02917F273000FA769 /* CoreDataService */,
 				FA5DEC20291984E3002975B9 /* RefreshManager.swift */,
@@ -481,6 +484,7 @@
 				FA905EBD2913C89C00599ED0 /* RequestConfig.swift in Sources */,
 				FA5DEC21291984E3002975B9 /* RefreshManager.swift in Sources */,
 				FAF589C629181EB9000FA769 /* NetworkProtocols.swift in Sources */,
+				FA507D82291BE7BF00194018 /* BackgroundTasksManager.swift in Sources */,
 				FA905EB52913C5C500599ED0 /* ContactsParser.swift in Sources */,
 				FA905E9D2913C15300599ED0 /* AppDelegate.swift in Sources */,
 				FA905EB72913C5E000599ED0 /* ContactResponseModel.swift in Sources */,

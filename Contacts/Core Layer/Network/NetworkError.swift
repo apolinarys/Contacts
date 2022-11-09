@@ -14,5 +14,7 @@ enum NetworkError: Error {
     
     case badData
     
+    case timeOut
+    
     case noConnection
 }

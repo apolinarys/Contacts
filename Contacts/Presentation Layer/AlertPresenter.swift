@@ -11,14 +11,14 @@ protocol IAlertPresenter {
     
     // MARK: - Methods
     
-    func showErrorAlert(transitionHandler: UIViewController, message: String)
+    func showErrorAlert(transitionHandler: UIViewController, message: String, actions: [UIAlertAction]?)
 }
 
 struct AlertPresenter: IAlertPresenter {
     
     // MARK: - IAlertPresenter
     
-    func showErrorAlert(transitionHandler: UIViewController, message: String) {
+    func showErrorAlert(transitionHandler: UIViewController, message: String, actions: [UIAlertAction]?) {
         let alert = UIAlertController(
             title: "Error",
             message: message,
@@ -30,6 +30,12 @@ struct AlertPresenter: IAlertPresenter {
         )
         
         alert.addAction(action)
+        
+        if let actions = actions {
+            actions.forEach {
+                alert.addAction($0)
+            }
+        }
         
         transitionHandler.present(alert, animated: true)
     }

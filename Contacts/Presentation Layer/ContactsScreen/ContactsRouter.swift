@@ -13,7 +13,7 @@ protocol IContactsRouter {
     // MARK: - Methods
     
     /// Отображает алерт ошибки.
-    func presentErrorAllert(message: String)
+    func presentErrorAlert(message: String, actions: [UIAlertAction]?)
 }
 
 struct ContactsRouter: IContactsRouter {
@@ -26,11 +26,12 @@ struct ContactsRouter: IContactsRouter {
     
     // MARK: - IContactsRouter
     
-    func presentErrorAllert(message: String) {
+    func presentErrorAlert(message: String, actions: [UIAlertAction]?) {
         DispatchQueue.main.async {
             alertPresenter.showErrorAlert(
                 transitionHandler: transitionHandler,
-                message: message
+                message: message,
+                actions: actions
             )
         }
     }

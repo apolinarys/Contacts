@@ -7,15 +7,28 @@
 
 import Foundation
 
+/// Сервис работы с хранилищем.
 protocol ICoreDataService {
+    
+    // MARK: - Methods
+    
+    /// Возвращает контакты.
     func getContacts() -> [Contact]
+    
+    /// Сохраняет контакты.
     func saveContacts(contacts: [Contact])
+    
+    /// Удаляет контакты.
     func deleteContacts()
 }
 
 struct CoreDataService: ICoreDataService {
     
+    // MARK: - Dependencies
+    
     let coreDataStack: ICoreDataStack
+    
+    // MARK: - ICoreDataService
     
     func getContacts() -> [Contact] {
         let fetchRequest = DBContact.fetchRequest()
@@ -54,6 +67,8 @@ struct CoreDataService: ICoreDataService {
             }
         }
     }
+    
+    // MARK: - Private methods
     
     private func getSkills(contact: DBContact) -> [String] {
         let fetchRequest = Skill.fetchRequest()

@@ -5,7 +5,7 @@
 //  Created by Macbook on 06.11.2022.
 //
 
-import Foundation
+import UIKit
 import UserNotifications
 
 /// Презентер экрана контактов.
@@ -38,28 +38,37 @@ struct ContactsPresenter: IContactsPresenter {
     // MARK: - Private Methods
     
     private func manageContacts() {
-        let savedContacts = coreDataService.getContacts()
-        
         if doNeedUpdateData() {
             coreDataService.deleteContacts()
-            requestSender.send(requestConfig: requestsFactory.contactsConfig()) { result in
-                switch result {
-                case Result.success(let contacts):
-                    DispatchQueue.main.async {
-                        view.contactsConfig(contacts: contacts)
-                    }
-                    saveContacts(contacts: contacts)
-                case Result.failure(let error):
-                        switch error {
-                        case NetworkError.badData, NetworkError.badURL:
-                            Logger.shared.message(error.localizedDescription)
-                        case NetworkError.noConnection:
-                            router.presentErrorAllert(message: "No Internet Connection")
-                        }
+            
+            loadContacts()
+            
+            return
+        }
+        
+        let savedContacts = coreDataService.getContacts()
+        
+        view.contactsConfig(contacts: savedContacts)
+    }
+    
+    private func loadContacts() {
+        requestSender.send(requestConfig: requestsFactory.contactsConfig()) { result in
+            switch result {
+            case Result.success(let contacts):
+                DispatchQueue.main.async {
+                    view.contactsConfig(contacts: contacts)
                 }
+                saveContacts(contacts: contacts)
+            case Result.failure(let error):
+                    switch error {
+                    case NetworkError.badData, NetworkError.badURL:
+                        Logger.shared.message(error.localizedDescription)
+                    case NetworkError.noConnection:
+                        router.presentErrorAlert(message: "No Internet Connection", actions: nil)
+                    case .timeOut:
+                        presentReloadAlert()
+                    }
             }
-        } else {
-            view.contactsConfig(contacts: savedContacts)
         }
     }
     
@@ -76,5 +85,18 @@ struct ContactsPresenter: IContactsPresenter {
     
     private func saveContacts(contacts: [Contact]) {
         coreDataService.saveContacts(contacts: contacts)
+    }
+    
+    private func presentReloadAlert() {
+        let action = UIAlertAction(
+            title: "Yes, reload",
+            style: UIAlertAction.Style.default,
+            handler: { _ in loadContacts() }
+        )
+        
+        router.presentErrorAlert(
+            message: "TimeOut. Reload?",
+            actions: [action]
+        )
     }
 }

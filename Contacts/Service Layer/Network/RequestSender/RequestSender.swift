@@ -32,10 +32,21 @@ struct RequestSender: IRequestSender {
             return
         }
         
-        let task = session.dataTask(with: urlRequest) { data, _, error in
+        let task = session.dataTask(with: urlRequest) { data, response, error in
             if error != nil {
-                completionHandler(Result.failure(NetworkError.noConnection))
-                return
+                return completionHandler(Result.failure(NetworkError.noConnection))
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                return completionHandler(Result.failure(NetworkError.badData))
+            }
+            
+            if response.statusCode == -1009 {
+                return completionHandler(Result.failure(NetworkError.noConnection))
+            }
+            
+            if response.statusCode == -1001 {
+                return completionHandler(Result.failure(NetworkError.timeOut))
             }
             
             guard let data = data, let parsedModel: Parser.Model = config.parser.parse(data: data) else {

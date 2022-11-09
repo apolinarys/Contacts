@@ -26,7 +26,7 @@ final class ContactsTableViewCell: UITableViewCell {
         return label
     }()
     
-    /// Лейбл таланта.
+    /// Лейбл талантов.
     private lazy var skillsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

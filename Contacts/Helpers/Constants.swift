@@ -9,6 +9,7 @@ import Foundation
 
 enum UserDefaultsKeys {
     static let DateKey = "DateKey"
+    static let isCompetedKey = "isCompetedKey"
 }
 
 enum AppConstants {
