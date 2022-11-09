@@ -5,9 +5,9 @@
 //  Created by Macbook on 09.11.2022.
 //
 
-import SystemConfiguration
+import Network
 
-/// Сервис проверки интернет соеденения.
+/// Сервис проверки интернет соединения.
 protocol INetworkCheckService {
     
     // MARK: - Methods
@@ -18,29 +18,34 @@ protocol INetworkCheckService {
 
 final class NetworkCheckService: INetworkCheckService {
     
+    // MARK: - Private Properties
+    
+    private let pathMonitor = NWPathMonitor()
+    
+    private var path: NWPath?
+    
+    lazy var pathUpdateHandler: ((NWPath) -> Void) = { path in
+        self.path = path
+    }
+    
+    // MARK: - Initializers
+    
+    init() {
+        pathMonitor.pathUpdateHandler = self.pathUpdateHandler
+        
+        pathMonitor.start(
+            queue: DispatchQueue.global(qos: DispatchQoS.QoSClass.default)
+        )
+    }
+    
     // MARK: - INetworkCheckService
-
+    
     func isConnectedToNetwork() -> Bool {
-
-        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
-        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-        zeroAddress.sin_family = sa_family_t(AF_INET)
-
-        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
-                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
-            }
+        if let path = self.path,
+           path.status == NWPath.Status.satisfied {
+            return true
         }
-
-        var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
-        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
-            return false
-        }
-
-        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
-        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
-        let ret = (isReachable && !needsConnection)
-
-        return ret
+        
+        return false
     }
 }

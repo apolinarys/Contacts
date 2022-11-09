@@ -11,6 +11,10 @@
 		FA507D7B291BD97000194018 /* ContactsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA507D7A291BD97000194018 /* ContactsRouter.swift */; };
 		FA507D82291BE7BF00194018 /* BackgroundTasksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA507D81291BE7BF00194018 /* BackgroundTasksManager.swift */; };
 		FA507D84291C174200194018 /* NetworkCheckService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA507D83291C174200194018 /* NetworkCheckService.swift */; };
+		FA507D87291C1ECE00194018 /* NoConnectionError.png in Resources */ = {isa = PBXBuildFile; fileRef = FA507D86291C1ECE00194018 /* NoConnectionError.png */; };
+		FA507D89291C1ED800194018 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = FA507D88291C1ED700194018 /* LaunchScreen.png */; };
+		FA507D8B291C1EE800194018 /* ContactsScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = FA507D8A291C1EE800194018 /* ContactsScreen.png */; };
+		FA507D8D291C1F2B00194018 /* TimeOutError.png in Resources */ = {isa = PBXBuildFile; fileRef = FA507D8C291C1F2B00194018 /* TimeOutError.png */; };
 		FA5DEC1F29195727002975B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DEC1E29195727002975B9 /* Constants.swift */; };
 		FA5DEC21291984E3002975B9 /* RefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DEC20291984E3002975B9 /* RefreshManager.swift */; };
 		FA905E9D2913C15300599ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905E9C2913C15300599ED0 /* AppDelegate.swift */; };
@@ -54,6 +58,10 @@
 		FA507D7A291BD97000194018 /* ContactsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRouter.swift; sourceTree = "<group>"; };
 		FA507D81291BE7BF00194018 /* BackgroundTasksManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTasksManager.swift; sourceTree = "<group>"; };
 		FA507D83291C174200194018 /* NetworkCheckService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheckService.swift; sourceTree = "<group>"; };
+		FA507D86291C1ECE00194018 /* NoConnectionError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoConnectionError.png; sourceTree = "<group>"; };
+		FA507D88291C1ED700194018 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
+		FA507D8A291C1EE800194018 /* ContactsScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ContactsScreen.png; sourceTree = "<group>"; };
+		FA507D8C291C1F2B00194018 /* TimeOutError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimeOutError.png; sourceTree = "<group>"; };
 		FA5DEC1E29195727002975B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA5DEC20291984E3002975B9 /* RefreshManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshManager.swift; sourceTree = "<group>"; };
 		FA905E992913C15300599ED0 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +189,17 @@
 			path = Contact;
 			sourceTree = "<group>";
 		};
+		FA507D85291C1DF700194018 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FA507D8C291C1F2B00194018 /* TimeOutError.png */,
+				FA507D88291C1ED700194018 /* LaunchScreen.png */,
+				FA507D86291C1ECE00194018 /* NoConnectionError.png */,
+				FA507D8A291C1EE800194018 /* ContactsScreen.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		FA905E902913C15300599ED0 = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +276,7 @@
 		FAF589A52917EA39000FA769 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FA507D85291C1DF700194018 /* Images */,
 				FAF589B2291808B1000FA769 /* Assets.xcassets */,
 				FA905EA72913C15900599ED0 /* LaunchScreen.storyboard */,
 				FA905EB22913C52F00599ED0 /* Logger.swift */,
@@ -414,7 +434,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF589B3291808B1000FA769 /* Assets.xcassets in Resources */,
+				FA507D87291C1ECE00194018 /* NoConnectionError.png in Resources */,
+				FA507D8B291C1EE800194018 /* ContactsScreen.png in Resources */,
 				FA905EA92913C15900599ED0 /* LaunchScreen.storyboard in Resources */,
+				FA507D8D291C1F2B00194018 /* TimeOutError.png in Resources */,
+				FA507D89291C1ED800194018 /* LaunchScreen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
