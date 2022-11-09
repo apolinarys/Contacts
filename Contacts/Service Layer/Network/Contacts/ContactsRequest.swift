@@ -9,13 +9,18 @@ import Foundation
 
 struct ContactsRequest: IRequest {
     
+    // MARK: - IRequest
+    
     var urlRequest: URLRequest? {
-        guard let components = createURLComponents(), let url = components.url else { return nil }
+        guard let components = createURLComponents(),
+              let url = components.url else { return nil }
+        
         return URLRequest(url: url)
     }
     
+    // MARK: - Private Methods
+    
     private func createURLComponents() -> URLComponents? {
-        
         var components = URLComponents()
 
         components.scheme = "https"

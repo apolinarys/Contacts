@@ -7,8 +7,12 @@
 
 import Foundation
 
+/// Перечисление сетевых ошибок.
 enum NetworkError: Error {
+    
     case badURL
+    
     case badData
+    
     case noConnection
 }

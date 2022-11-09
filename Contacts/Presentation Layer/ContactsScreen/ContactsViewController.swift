@@ -7,61 +7,84 @@
 
 import UIKit
 
+/// Представление экрана контактов.
 protocol IContactsView {
+    
+    // MARK: - Methods
+    
     func contactsConfig(contacts: [Contact])
 }
 
-final class ContactsViewController: UIViewController, IContactsView {
+final class ContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, IContactsView {
     
-    private lazy var tableView = UITableView(frame: view.frame)
-    private var contacts: [Contact] = []
+    // MARK: - Properties
+    
     var presenter: IContactsPresenter?
+    
+    // MARK: - Private Properties
+    
+    private var contacts: [Contact] = []
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: view.frame)
+        
+        tableView.register(
+            ContactsTableViewCell.self,
+            forCellReuseIdentifier: String(describing: ContactsTableViewCell.self)
+        )
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        return tableView
+    }()
+    
+    // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addSubviews()
-        setupTableView()
-        presenter?.onViewDidLoad()
         setupNavigationBar()
-    }
-}
-
-// MARK: - UserInterface setup
-
-extension ContactsViewController {
-    
-    func contactsConfig(contacts: [Contact]) {
-        self.contacts = contacts
-        tableView.reloadData()
+        
+        presenter?.onViewDidLoad()
     }
     
-    private func setupNavigationBar() {
-        navigationItem.title = "Contacts"
-    }
-    
-    private func setupTableView() {
-        tableView.register(ContactsTableViewCell.self, forCellReuseIdentifier: String(describing: ContactsTableViewCell.self))
-        tableView.dataSource = self
-    }
-    
-    private func addSubviews() {
-        view.addSubview(tableView)
-    }
-}
-
-// MARK: - UITableViewDataSource
-
-extension ContactsViewController: UITableViewDataSource {
+    // MARK: - UITableViewDelegate & UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ContactsTableViewCell.self))
-        guard let cell = cell as? ContactsTableViewCell else { return UITableViewCell() }
+        
+        guard let cell = cell as? ContactsTableViewCell else {
+            return UITableViewCell()
+        }
         cell.configure(contact: contacts[indexPath.row])
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - IContactsView
+    
+    func contactsConfig(contacts: [Contact]) {
+        self.contacts = contacts
+        
+        tableView.reloadData()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func addSubviews() {
+        view.addSubview(tableView)
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.title = "Contacts"
     }
 }

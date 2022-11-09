@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct ResponseModel: Decodable {
+struct ContactResponseModel: Decodable {
     let company: Company
 }
 
-extension ResponseModel {
+extension ContactResponseModel {
     struct Company: Decodable {
         let name: String
         let employees: [Employee]

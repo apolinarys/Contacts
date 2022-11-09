@@ -9,41 +9,41 @@ import UIKit
 import BackgroundTasks
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        BGTaskScheduler.shared.register(
-          forTaskWithIdentifier: AppConstants.backgroundTaskIdentifier,
-          using: nil) { task in
-            self.refresh() // 1
-            task.setTaskCompleted(success: true) // 2
-            self.scheduleAppRefresh() // 3
-        }
-
-        scheduleAppRefresh()
-        
         window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController()
-        let viewControllersFactory = ViewControllersFactory()
-        let initialVC = viewControllersFactory.createContactsModule()
-        navigationController.viewControllers = [initialVC]
-        window?.rootViewController = navigationController
+        
+        let rootViewController = ViewControllersFactory().createContactsModule()
+        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+        
         window?.makeKeyAndVisible()
         
         return true
     }
     
-    func refresh() {
+    private func setupTaskScheduler() {
+        BGTaskScheduler.shared.register(
+          forTaskWithIdentifier: AppConstants.backgroundTaskIdentifier,
+          using: nil) { task in
+            self.refresh() // 1
+            task.setTaskCompleted(success: true)
+            self.scheduleAppRefresh()
+        }
+
+        scheduleAppRefresh()
+    }
+    
+    private func refresh() {
         let refreshManager = RefreshManager()
         refreshManager.deleteContacts()
         UserDefaults.standard.set(nil, forKey: UserDefaultsKeys.DateKey)
         Logger.shared.message("refresh occurred")
     }
     
-    func scheduleAppRefresh() {
+    private func scheduleAppRefresh() {
       let request = BGAppRefreshTaskRequest(
         identifier: AppConstants.backgroundTaskIdentifier)
       request.earliestBeginDate = Date(timeIntervalSinceNow: 60 * 60)
@@ -56,5 +56,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
         }
     }
-
 }

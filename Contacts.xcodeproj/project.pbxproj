@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8FA739F25A3223E110E47AE2 /* Pods_Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4116E4CF1C1949B382ED3AE3 /* Pods_Contacts.framework */; };
+		FA507D7B291BD97000194018 /* ContactsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA507D7A291BD97000194018 /* ContactsRouter.swift */; };
 		FA5DEC1F29195727002975B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DEC1E29195727002975B9 /* Constants.swift */; };
 		FA5DEC21291984E3002975B9 /* RefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DEC20291984E3002975B9 /* RefreshManager.swift */; };
 		FA905E9D2913C15300599ED0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905E9C2913C15300599ED0 /* AppDelegate.swift */; };
@@ -16,7 +17,7 @@
 		FA905EB12913C50B00599ED0 /* ContactsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EB02913C50B00599ED0 /* ContactsRequest.swift */; };
 		FA905EB32913C52F00599ED0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EB22913C52F00599ED0 /* Logger.swift */; };
 		FA905EB52913C5C500599ED0 /* ContactsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EB42913C5C500599ED0 /* ContactsParser.swift */; };
-		FA905EB72913C5E000599ED0 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EB62913C5E000599ED0 /* ResponseModel.swift */; };
+		FA905EB72913C5E000599ED0 /* ContactResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EB62913C5E000599ED0 /* ContactResponseModel.swift */; };
 		FA905EB92913C7B300599ED0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EB82913C7B300599ED0 /* Contact.swift */; };
 		FA905EBB2913C87300599ED0 /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EBA2913C87300599ED0 /* RequestSender.swift */; };
 		FA905EBD2913C89C00599ED0 /* RequestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA905EBC2913C89C00599ED0 /* RequestConfig.swift */; };
@@ -29,7 +30,7 @@
 		FAF589AC2917F096000FA769 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAF589AA2917F096000FA769 /* CoreDataModel.xcdatamodeld */; };
 		FAF589AF2917F26F000FA769 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589AE2917F26F000FA769 /* CoreDataService.swift */; };
 		FAF589B3291808B1000FA769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF589B2291808B1000FA769 /* Assets.xcassets */; };
-		FAF589B5291809E6000FA769 /* ErrorAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589B4291809E6000FA769 /* ErrorAlertPresenter.swift */; };
+		FAF589B5291809E6000FA769 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589B4291809E6000FA769 /* AlertPresenter.swift */; };
 		FAF589BD29181014000FA769 /* CoreDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589BC29181014000FA769 /* CoreDataServiceTests.swift */; };
 		FAF589C4291810BB000FA769 /* CoreDataStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589C3291810BB000FA769 /* CoreDataStackMock.swift */; };
 		FAF589C629181EB9000FA769 /* NetworkProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF589C529181EB9000FA769 /* NetworkProtocols.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		4116E4CF1C1949B382ED3AE3 /* Pods_Contacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFE9F7EB588F1787147810DE /* Pods-Contacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts.debug.xcconfig"; path = "Target Support Files/Pods-Contacts/Pods-Contacts.debug.xcconfig"; sourceTree = "<group>"; };
+		FA507D7A291BD97000194018 /* ContactsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRouter.swift; sourceTree = "<group>"; };
 		FA5DEC1E29195727002975B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA5DEC20291984E3002975B9 /* RefreshManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshManager.swift; sourceTree = "<group>"; };
 		FA905E992913C15300599ED0 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,7 +60,7 @@
 		FA905EB02913C50B00599ED0 /* ContactsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRequest.swift; sourceTree = "<group>"; };
 		FA905EB22913C52F00599ED0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		FA905EB42913C5C500599ED0 /* ContactsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsParser.swift; sourceTree = "<group>"; };
-		FA905EB62913C5E000599ED0 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		FA905EB62913C5E000599ED0 /* ContactResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactResponseModel.swift; sourceTree = "<group>"; };
 		FA905EB82913C7B300599ED0 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		FA905EBA2913C87300599ED0 /* RequestSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
 		FA905EBC2913C89C00599ED0 /* RequestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfig.swift; sourceTree = "<group>"; };
@@ -72,7 +74,7 @@
 		FAF589AE2917F26F000FA769 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		FAF589B129180776000FA769 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FAF589B2291808B1000FA769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FAF589B4291809E6000FA769 /* ErrorAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertPresenter.swift; sourceTree = "<group>"; };
+		FAF589B4291809E6000FA769 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		FAF589BA29181014000FA769 /* ContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF589BC29181014000FA769 /* CoreDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceTests.swift; sourceTree = "<group>"; };
 		FAF589C3291810BB000FA769 /* CoreDataStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackMock.swift; sourceTree = "<group>"; };
@@ -116,6 +118,65 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA507D78291BCDC400194018 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FA905E9C2913C15300599ED0 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		FA507D79291BCDCE00194018 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				FAF5899D2917E57F000FA769 /* ViewControllersFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		FA507D7C291BDCFF00194018 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				FAF589A22917E949000FA769 /* RequestsFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		FA507D7D291BDD1400194018 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				FA905EB02913C50B00599ED0 /* ContactsRequest.swift */,
+				FA905EB42913C5C500599ED0 /* ContactsParser.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		FA507D7E291BDD2500194018 /* RequestSender */ = {
+			isa = PBXGroup;
+			children = (
+				FA905EBA2913C87300599ED0 /* RequestSender.swift */,
+			);
+			path = RequestSender;
+			sourceTree = "<group>";
+		};
+		FA507D7F291BDFAF00194018 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FA905EBC2913C89C00599ED0 /* RequestConfig.swift */,
+				FA905EBE2913C8BD00599ED0 /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FA507D80291BE02300194018 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				FA905EB82913C7B300599ED0 /* Contact.swift */,
+				FA905EB62913C5E000599ED0 /* ContactResponseModel.swift */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
 		FA905E902913C15300599ED0 = {
 			isa = PBXGroup;
 			children = (
@@ -154,10 +215,7 @@
 		FA905EC02913C8C700599ED0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FA905EB82913C7B300599ED0 /* Contact.swift */,
-				FA905EB62913C5E000599ED0 /* ResponseModel.swift */,
-				FA905EBC2913C89C00599ED0 /* RequestConfig.swift */,
-				FA905EBE2913C8BD00599ED0 /* NetworkError.swift */,
+				FA507D80291BE02300194018 /* Contact */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,6 +225,7 @@
 			children = (
 				FA905EA02913C15300599ED0 /* ContactsViewController.swift */,
 				FAF5899F2917E7BB000FA769 /* ContactsPresenter.swift */,
+				FA507D7A291BD97000194018 /* ContactsRouter.swift */,
 				FAF589A42917E9E9000FA769 /* Views */,
 			);
 			path = ContactsScreen;
@@ -175,7 +234,7 @@
 		FAF589A12917E85C000FA769 /* Service Layer */ = {
 			isa = PBXGroup;
 			children = (
-				FAF589AD2917F23B000FA769 /* NetworkService */,
+				FAF589AD2917F23B000FA769 /* Network */,
 				FAF589B02917F273000FA769 /* CoreDataService */,
 				FA5DEC20291984E3002975B9 /* RefreshManager.swift */,
 			);
@@ -204,9 +263,9 @@
 		FAF589A62917EF9C000FA769 /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
-				FA905E9C2913C15300599ED0 /* AppDelegate.swift */,
-				FAF5899D2917E57F000FA769 /* ViewControllersFactory.swift */,
-				FAF589B4291809E6000FA769 /* ErrorAlertPresenter.swift */,
+				FA507D79291BCDCE00194018 /* Factories */,
+				FA507D78291BCDC400194018 /* AppDelegate */,
+				FAF589B4291809E6000FA769 /* AlertPresenter.swift */,
 				FA905EC12913C95A00599ED0 /* ContactsScreen */,
 			);
 			path = "Presentation Layer";
@@ -215,20 +274,20 @@
 		FAF589A72917F006000FA769 /* Core Layer */ = {
 			isa = PBXGroup;
 			children = (
+				FA507D7F291BDFAF00194018 /* Network */,
 				FAF589C829181F21000FA769 /* CoreData */,
 			);
 			path = "Core Layer";
 			sourceTree = "<group>";
 		};
-		FAF589AD2917F23B000FA769 /* NetworkService */ = {
+		FAF589AD2917F23B000FA769 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				FA905EBA2913C87300599ED0 /* RequestSender.swift */,
-				FA905EB02913C50B00599ED0 /* ContactsRequest.swift */,
-				FA905EB42913C5C500599ED0 /* ContactsParser.swift */,
-				FAF589A22917E949000FA769 /* RequestsFactory.swift */,
+				FA507D7E291BDD2500194018 /* RequestSender */,
+				FA507D7D291BDD1400194018 /* Contacts */,
+				FA507D7C291BDCFF00194018 /* Factories */,
 			);
-			path = NetworkService;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		FAF589B02917F273000FA769 /* CoreDataService */ = {
@@ -417,17 +476,18 @@
 				FA905EA12913C15300599ED0 /* ContactsViewController.swift in Sources */,
 				FA905EB12913C50B00599ED0 /* ContactsRequest.swift in Sources */,
 				FAF589A92917F023000FA769 /* CoreDataStack.swift in Sources */,
+				FA507D7B291BD97000194018 /* ContactsRouter.swift in Sources */,
 				FAF589AC2917F096000FA769 /* CoreDataModel.xcdatamodeld in Sources */,
 				FA905EBD2913C89C00599ED0 /* RequestConfig.swift in Sources */,
 				FA5DEC21291984E3002975B9 /* RefreshManager.swift in Sources */,
 				FAF589C629181EB9000FA769 /* NetworkProtocols.swift in Sources */,
 				FA905EB52913C5C500599ED0 /* ContactsParser.swift in Sources */,
 				FA905E9D2913C15300599ED0 /* AppDelegate.swift in Sources */,
-				FA905EB72913C5E000599ED0 /* ResponseModel.swift in Sources */,
+				FA905EB72913C5E000599ED0 /* ContactResponseModel.swift in Sources */,
 				FAF589A32917E949000FA769 /* RequestsFactory.swift in Sources */,
 				FA905EB32913C52F00599ED0 /* Logger.swift in Sources */,
 				FA5DEC1F29195727002975B9 /* Constants.swift in Sources */,
-				FAF589B5291809E6000FA769 /* ErrorAlertPresenter.swift in Sources */,
+				FAF589B5291809E6000FA769 /* AlertPresenter.swift in Sources */,
 				FA905EB92913C7B300599ED0 /* Contact.swift in Sources */,
 				FAF589AF2917F26F000FA769 /* CoreDataService.swift in Sources */,
 				FA905EBF2913C8BD00599ED0 /* NetworkError.swift in Sources */,

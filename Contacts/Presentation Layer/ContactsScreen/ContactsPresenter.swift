@@ -8,25 +8,38 @@
 import Foundation
 import UserNotifications
 
+/// Презентер экрана контактов.
 protocol IContactsPresenter {
+    
+    // MARK: - Methods
+    
     func onViewDidLoad()
 }
 
 struct ContactsPresenter: IContactsPresenter {
     
+    // MARK: - Dependencies
+    
+    let view: IContactsView
+    
     let requestSender: IRequestSender
     let coreDataService: ICoreDataService
-    let alertPresenter: ErrorAlertPresenter
     let requestsFactory: IRequestFactory
-    let view: IContactsView
+    
+    let router: IContactsRouter
+    
+    // MARK: - IContactsPresenter
     
     func onViewDidLoad() {
         setDate()
         manageContacts()
     }
     
+    // MARK: - Private Methods
+    
     private func manageContacts() {
         let savedContacts = coreDataService.getContacts()
+        
         if doNeedUpdateData() {
             coreDataService.deleteContacts()
             requestSender.send(requestConfig: requestsFactory.contactsConfig()) { result in
@@ -37,14 +50,12 @@ struct ContactsPresenter: IContactsPresenter {
                     }
                     saveContacts(contacts: contacts)
                 case Result.failure(let error):
-                    DispatchQueue.main.async {
                         switch error {
                         case NetworkError.badData, NetworkError.badURL:
                             Logger.shared.message(error.localizedDescription)
                         case NetworkError.noConnection:
-                            alertPresenter.showAlert(message: "No Internet Connection")
+                            router.presentErrorAllert(message: "No Internet Connection")
                         }
-                    }
                 }
             }
         } else {

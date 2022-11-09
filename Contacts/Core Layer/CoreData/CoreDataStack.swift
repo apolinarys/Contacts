@@ -7,27 +7,40 @@
 
 import CoreData
 
-protocol ICoreDataStack {
-    func getContext() -> NSManagedObjectContext
-    func fetch<T>(fetchRequest: NSFetchRequest<T>) -> [T]?
-    func performSave(_ block: @escaping (NSManagedObjectContext) -> Void)
-}
-
 private extension String {
     static let coreDataStackContainerName = "CoreDataModel"
 }
 
+protocol ICoreDataStack {
+    
+    // MARK: - Methods
+    
+    func getContext() -> NSManagedObjectContext
+    
+    func fetch<T>(fetchRequest: NSFetchRequest<T>) -> [T]?
+    
+    func performSave(_ block: @escaping (NSManagedObjectContext) -> Void)
+}
+
 final class CoreDataStack: ICoreDataStack {
     
+    // MARK: - Private Properties
+    
     private lazy var container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: String.coreDataStackContainerName)
+        let container = NSPersistentContainer(
+            name: String.coreDataStackContainerName
+        )
+        
         container.loadPersistentStores { _, error in
             if let error = error {
                 Logger.shared.message(error.localizedDescription)
             }
         }
+        
         return container
     }()
+    
+    // MARK: - ICoreDataStack
     
     func getContext() -> NSManagedObjectContext {
         container.viewContext
@@ -39,6 +52,7 @@ final class CoreDataStack: ICoreDataStack {
     
     func performSave(_ block: @escaping (NSManagedObjectContext) -> Void) {
         let context = container.newBackgroundContext()
+        
         context.perform { [weak self] in
             block(context)
             if context.hasChanges {
@@ -51,8 +65,11 @@ final class CoreDataStack: ICoreDataStack {
         }
     }
     
+    // MARK: - Private Methods
+    
     private func performSave(in context: NSManagedObjectContext) throws {
         try context.save()
+        
         if let parent = context.parent {
             try performSave(in: parent)
         }

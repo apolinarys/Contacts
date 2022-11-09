@@ -9,28 +9,32 @@ import UIKit
 
 final class ContactsTableViewCell: UITableViewCell {
     
+    // MARK: - Private Properties
+    
+    /// Лейбл имени.
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium)
-        label.text = "Name"
         return label
     }()
     
+    /// Лейбл номера.
     private lazy var phoneLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Phone"
         return label
     }()
     
+    /// Лейбл таланта.
     private lazy var skillsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Skills"
         label.numberOfLines = 0
         return label
     }()
+    
+    // MARK: - Initializers
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -42,35 +46,26 @@ final class ContactsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func prepareForReuse() {
-        nameLabel.text = ""
-        phoneLabel.text = ""
-        skillsLabel.text = ""
-    }
-}
-
-// MARK: - Data managing
-
-extension ContactsTableViewCell {
+    // MARK: - UITableViewCell
     
+    override func prepareForReuse() {
+        nameLabel.text = nil
+        phoneLabel.text = nil
+        skillsLabel.text = nil
+    }
+    
+    // MARK: - Configuration
+    
+    /// Конфигурирует ячейку.
+    /// - Parameters:
+    ///  - contact: Модель контакта.
     func configure(contact: Contact) {
         nameLabel.text = contact.name
         phoneLabel.text = contact.phoneNumber
-        var skills = ""
-        for skill in contact.skills {
-            if skill == contact.skills.last {
-                skills += skill
-            } else {
-                skills += skill + " * "
-            }
-        }
-        skillsLabel.text = skills
+        skillsLabel.text = contact.skills.joined(separator: " * ")
     }
-}
-
-// MARK: - UserInterfaceSetup
-
-extension ContactsTableViewCell {
+    
+    // MARK: - Private Methods
     
     private func addSubviews() {
         contentView.addSubview(nameLabel)
